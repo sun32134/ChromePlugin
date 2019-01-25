@@ -1,0 +1,26 @@
+{
+	"name":"Smart Card",
+	"version":"1.0",
+	"description":"Build an Extension!",
+	"permissions":[	"nativeMessaging",
+					"tabs",
+					"https://*.google.com/", 
+					"http://192.168.1.177:30000/*",
+					"activeTab"
+				],
+	"background":{
+		"scripts":["background.js"],
+		"persistent":false
+	},
+	"content_scripts":[
+		{
+			"matches":["http://192.168.1.177:30000/"],
+			"js":["/card.js"]
+		},
+		{
+			"matches":["http://192.168.1.177:30000/purchase"],
+			"js":["/purchase.js"]
+		}
+	],
+	"manifest_version":2
+}
